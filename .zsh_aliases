@@ -1,0 +1,18 @@
+alias ls="ls --color=auto"
+alias ll="ls -la"
+
+HUNTER="/home/georg/Workspaces/hunter"
+alias ch="cd $HUNTER"
+alias gh="$HUNTER/gradlew -Dtarget.host=glyoxal --console=rich"
+alias ghd="$HUNTER/gradle-in-docker.py -Dtarget.host=glyoxal"
+
+alias activate-hunter="source /home/georg/.local/virtualenv/hunter/bin/activate"
+alias activate-pofa="source /home/georg/.local/virtualenv/pofa/bin/activate"
+
+alias pacman="sudo pacman --color=auto"
+alias upgrade="sudo pacman -Syu"
+alias sctl="systemctl"
+
+alias g="git"
+
+alias docker-clean='docker system prune'
