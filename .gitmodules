@@ -4,3 +4,6 @@
 [submodule ".config/awesome"]
 	path = .config/awesome
 	url = git@github.com:gfelbing/awesome-copycats.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
