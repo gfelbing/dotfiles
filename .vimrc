@@ -67,7 +67,7 @@ command PANDOC :w | !pandoc-compose -v
 
 
 """[colortheme
-colorscheme LightMy
+colorscheme Light
 """]
 
 """[NERDtree
