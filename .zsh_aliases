@@ -16,3 +16,6 @@ alias sctl="systemctl"
 alias g="git"
 
 alias docker-clean='docker system prune'
+
+alias fefe='lynx --dump blog.fefe.de | less'
+

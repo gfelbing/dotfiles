@@ -11,6 +11,7 @@ chsh -s /usr/bin/zsh
 FILES=".config/awesome \
         .config/termite \
         .env \
+        .lynxrc \
         .oh-my-zsh \
         .vim/bundle/Vundle.vim \
         .vimrc \
