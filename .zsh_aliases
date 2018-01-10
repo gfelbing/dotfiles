@@ -13,6 +13,8 @@ alias pacman="sudo pacman --color=auto"
 alias upgrade="sudo pacman -Syu"
 alias sctl="systemctl"
 
+alias t='task'
+
 alias g="git"
 
 alias docker-clean='docker system prune'
