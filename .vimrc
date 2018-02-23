@@ -12,6 +12,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'chriskempson/base16-vim'
+Plugin 'mindriot101/vim-yapf'
 call vundle#end()            " required
 filetype plugin indent on    " required
 """]
@@ -46,10 +47,13 @@ colorscheme base16-google-light
 
 
 """[Airline
+
 let g:airline_theme='papercolor'
+" Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
 """]
 
 """[Some settings
@@ -81,6 +85,12 @@ command PDF :w | !pandoc %:t -o %:t.pdf
 command PANDOC :w | !pandoc-compose -v
 """]
 
+"""[yapf - python formatter
+command PEP8 :w | :Yapf --style=pep8 | :w
+
+"""[clang
+command CLANGFORMAT :w | !clang-format -i %
+"""]
 
 """[NERDtree
 function! NERDTreeToggleInCurDir()

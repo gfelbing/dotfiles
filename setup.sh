@@ -5,11 +5,12 @@ set -x
 
 BASEDIR=$(realpath $(dirname $0))
 
-pacman -S zsh gvim awesome ttf-hack termite xscreensaver
+sudo pacman -S zsh gvim awesome ttf-hack termite xscreensaver
 chsh -s /usr/bin/zsh
 
 FILES=".config/awesome \
         .config/termite \
+        .config/base16-shell \
         .env \
         .lynxrc \
         .oh-my-zsh \
@@ -19,5 +20,5 @@ FILES=".config/awesome \
         .zshrc"
 
 for FILE in $FILES; do
-    echo "ln -s $BASEDIR/$FILE ~/$FILE"
+    echo "ln -fs $BASEDIR/$FILE ~/$FILE"
 done
