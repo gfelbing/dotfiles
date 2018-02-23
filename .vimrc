@@ -1,10 +1,29 @@
-" Basic setup
+"""[Vundle stuff
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'ianks/vim-tsx'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+Plugin 'chriskempson/base16-vim'
+call vundle#end()            " required
+filetype plugin indent on    " required
+"""]
+
+"""[ Basic setup
 set nocompatible              " required
 syntax enable
 filetype off
 set path+=**
 set wildmenu
 set cursorline
+set autoread
 
 " Tags for file jump and autocomplete
 command MakeTags !ctags -R .
@@ -17,35 +36,20 @@ let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-
-
-"""[Vundle stuff
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'gfelbing/vim-colorschemes'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'ianks/vim-tsx'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'Valloric/YouCompleteMe'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+"""[base16
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+colorscheme base16-google-light 
 """]
 
 
 """[Airline
-
 let g:airline_theme='papercolor'
-" Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
 """]
 
 """[Some settings
@@ -56,8 +60,20 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Enable Syntax Highlighting
 syntax on
 filetype indent plugin on
-set background=light
+"""]
 
+
+"""[ file search
+" find files and populate the quickfix list
+fun! Find(filename)
+  let error_file = tempname()
+  silent exe '!find . -iname "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
+  set errorformat=%f:%l:%m
+  exe "cfile ". error_file
+  copen
+  call delete(error_file)
+endfun
+command! -nargs=1 Find call Find(<q-args>)
 """]
 
 """[Pandoc
@@ -65,10 +81,6 @@ command PDF :w | !pandoc %:t -o %:t.pdf
 command PANDOC :w | !pandoc-compose -v
 """]
 
-
-"""[colortheme
-colorscheme Light
-"""]
 
 """[NERDtree
 function! NERDTreeToggleInCurDir()
