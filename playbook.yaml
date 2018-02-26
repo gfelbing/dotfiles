@@ -1,0 +1,42 @@
+---
+- name: Install packages
+  hosts: localhost
+  tasks:
+      - name: Run Pacman
+        pacman:
+            name: "{{ item }}"
+            state: present
+        with_items:
+            - zsh
+            - gvim
+            - awesome
+            - ttf-hack
+            - termite
+            - xscreensaver
+
+- name: Create symbolic links
+  hosts: localhost 
+  tasks:
+      - name: Linking files
+        file: 
+            src: "{{ playbook_dir }}/{{ item }}"
+            dest: "{{ ansible_env.HOME }}/{{ item }}"
+            state: link
+        with_items:
+            - .config/awesome
+            - .config/termite
+            - .config/base16-shell
+            - .env
+            - .lynxrc
+            - .oh-my-zsh
+            - .vim
+            - .vimrc
+            - .zsh_aliases
+            - .zshrc
+
+- name: Setup vim
+  hosts: localhost
+  tasks:
+      - name: Vundle update/clean
+        shell: vim +PluginUpdate +PluginClean +qall!
+

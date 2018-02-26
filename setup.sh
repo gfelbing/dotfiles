@@ -5,20 +5,18 @@ set -x
 
 BASEDIR=$(realpath $(dirname $0))
 
-sudo pacman -S zsh gvim awesome ttf-hack termite xscreensaver
-chsh -s /usr/bin/zsh
+ensure_install() {
+    APP=$1
+    if [ -z "$(which $APP)" ]; then
+        sudo pacman -S $APP
+    fi
+}
 
-FILES=".config/awesome \
-        .config/termite \
-        .config/base16-shell \
-        .env \
-        .lynxrc \
-        .oh-my-zsh \
-        .vim/bundle/Vundle.vim \
-        .vimrc \
-        .zsh_aliases \
-        .zshrc"
+ensure_install ansible
+ansible-playbook "$BASEDIR/playbook.yaml"
 
-for FILE in $FILES; do
-    echo "ln -fs $BASEDIR/$FILE ~/$FILE"
-done
+# TODO: move this to playbook
+if [ "$(echo $SHELL)" != "/bin/zsh" ]; then
+    chsh -s /usr/bin/zsh
+fi
+

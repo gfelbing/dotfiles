@@ -1,0 +1,4 @@
+.vim/*
+!.vim/bundle/Vundle.vim
+
+playbook.retry

@@ -2,7 +2,7 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ianks/vim-tsx'
 Plugin 'scrooloose/nerdtree.git'
