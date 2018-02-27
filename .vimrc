@@ -14,6 +14,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'chriskempson/base16-vim'
 Plugin 'mindriot101/vim-yapf'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'mileszs/ack.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 """]
@@ -70,6 +71,9 @@ filetype indent plugin on
 
 """[ file search
 nnoremap <C-p> :FZF<CR>
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 """]
 
 """[Pandoc

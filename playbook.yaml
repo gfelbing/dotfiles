@@ -27,6 +27,7 @@
             - .config/awesome
             - .config/termite
             - .config/base16-shell
+            - .agignore
             - .env
             - .lynxrc
             - .oh-my-zsh
