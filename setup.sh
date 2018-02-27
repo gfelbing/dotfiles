@@ -16,7 +16,7 @@ ensure_install ansible
 ansible-playbook "$BASEDIR/playbook.yaml"
 
 # TODO: move this to playbook
-if [ "$(echo $SHELL)" != "/bin/zsh" ]; then
+if [[ "$(echo $SHELL)" != */zsh ]]; then
     chsh -s /usr/bin/zsh
 fi
 

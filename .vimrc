@@ -13,6 +13,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'chriskempson/base16-vim'
 Plugin 'mindriot101/vim-yapf'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call vundle#end()            " required
 filetype plugin indent on    " required
 """]
@@ -68,6 +69,7 @@ filetype indent plugin on
 
 
 """[ file search
+nnoremap <C-p> :FZF<CR>
 " find files and populate the quickfix list
 fun! Find(filename)
   let error_file = tempname()

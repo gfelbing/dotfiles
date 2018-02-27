@@ -7,6 +7,7 @@
             name: "{{ item }}"
             state: present
         with_items:
+            - the_silver_searcher
             - zsh
             - gvim
             - awesome
