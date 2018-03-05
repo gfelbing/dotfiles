@@ -3,6 +3,7 @@
   hosts: localhost
   tasks:
       - name: Run Pacman
+        become: true
         pacman:
             name: "{{ item }}"
             state: present
