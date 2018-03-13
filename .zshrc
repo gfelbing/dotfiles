@@ -10,6 +10,10 @@ export ZSH=/home/georg/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+source $HOME/.zsh_aliases
+source $HOME/.env
+
+
 ZSH_THEME="agnoster"
 
 # Set list of themes to load
@@ -95,9 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 #
 # alias zshconfig="mate ~/.zshrc"
-
-source $HOME/.zsh_aliases
-source $HOME/.env
 
 HISTFILE=~/.histfile
 HISTSIZE=1000000

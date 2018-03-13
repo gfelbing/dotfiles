@@ -103,3 +103,8 @@ function! NERDTreeToggleInCurDir()
 endfunction
 map <C-n> :call NERDTreeToggleInCurDir()<CR>
 """]
+
+"""[Window navigation
+nnoremap <silent> <C-j> :bnext<CR>
+nnoremap <silent> <C-k> :bprev<CR>
+"""]

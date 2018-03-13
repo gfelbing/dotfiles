@@ -2,6 +2,7 @@
 .cache
 .ccache
 .virtualbox
-.steam node_modules
+.steam
+node_modules
 build
 

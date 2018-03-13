@@ -6,6 +6,16 @@ alias ch="cd $HUNTER"
 alias gh="$HUNTER/gradlew -Dtarget.host=glyoxal --console=rich"
 alias ghd="$HUNTER/gradle-in-docker.py -Dtarget.host=glyoxal"
 
+NAO="/home/georg/Workspaces/hulks/nao"
+alias nao="cd $NAO"
+alias nb="cd $NAO && scripts/compile"
+alias nu="cd $NAO && scripts/upload -dc"
+alias nc="cd $NAO && scripts/connect"
+alias ng="cd $NAO && scripts/pregame"
+alias np="cd $NAO && scripts/postgame"
+alias nv="cd $NAO && vim"
+alias nao-leave="cd $NAO && scripts/shutdown 11 12 13 14 15 16 17"
+
 alias activate-hunter="source /home/georg/.local/virtualenv/hunter/bin/activate"
 alias activate="source /home/georg/.local/virtualenv/bin/activate"
 
@@ -18,6 +28,4 @@ alias t='task'
 alias g="git"
 
 alias docker-clean='docker system prune'
-
-alias fefe='lynx --dump blog.fefe.de | less'
 
