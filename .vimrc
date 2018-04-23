@@ -27,6 +27,8 @@ set path+=**
 set wildmenu
 set cursorline
 set autoread
+set exrc
+set secure
 
 " Tags for file jump and autocomplete
 command MakeTags !ctags -R .
@@ -107,4 +109,8 @@ map <C-n> :call NERDTreeToggleInCurDir()<CR>
 """[Window navigation
 nnoremap <silent> <C-j> :bnext<CR>
 nnoremap <silent> <C-k> :bprev<CR>
+"""]
+
+"""[ YCM
+nnoremap <C-b> :YcmCompleter GoTo
 """]
