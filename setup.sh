@@ -13,7 +13,7 @@ ensure_install() {
 }
 
 ensure_install ansible
-ansible-playbook --ask-become-pass "$BASEDIR/playbook.yaml"
+ansible-playbook -v --ask-become-pass "$BASEDIR/playbook.yaml"
 
 # TODO: move this to playbook
 if [[ "$(echo $SHELL)" != */zsh ]]; then

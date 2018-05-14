@@ -3,7 +3,7 @@ alias ll="ls -la"
 
 HUNTER="/home/georg/Workspaces/hunter"
 alias ch="cd $HUNTER"
-alias gh="$HUNTER/gradlew -Dtarget.host=glyoxal --console=rich"
+alias gh="$HUNTER/gradlew --configure-on-demand -Dtarget.host=glyoxal --console=rich"
 alias ghd="$HUNTER/gradle-in-docker.py -Dtarget.host=glyoxal"
 
 NAO="/home/georg/Workspaces/hulks/nao"

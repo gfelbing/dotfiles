@@ -8,13 +8,14 @@
             name: "{{ item }}"
             state: present
         with_items:
-            - the_silver_searcher
-            - zsh
-            - gvim
             - awesome
-            - ttf-hack
+            - gvim
+            - i3lock
+            - maim
             - termite
-            - xscreensaver
+            - the_silver_searcher
+            - ttf-hack
+            - zsh
 
 - name: Create symbolic links
   hosts: localhost 
@@ -28,9 +29,11 @@
             - .config/awesome
             - .config/termite
             - .config/base16-shell
+            - .local/bin/lock
             - .agignore
             - .env
             - .lynxrc
+            - .padlock.png
             - .oh-my-zsh
             - .vim
             - .vimrc
