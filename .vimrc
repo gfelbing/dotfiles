@@ -29,6 +29,7 @@ set cursorline
 set autoread
 set exrc
 set secure
+let mapleader = "," 
 
 " Tags for file jump and autocomplete
 command MakeTags !ctags -R .
@@ -88,6 +89,9 @@ command PEP8 :w | :Yapf --style=pep8 | :w
 
 """[clang
 command CLANGFORMAT :w | !clang-format -i %
+autocmd FileType c,cpp,objc nnoremap <Leader>cf :CLANGFORMAT<CR>
+command JSONPP !cat % | json_pp --json_opt=canonical,pretty > /tmp/json_pp && cat /tmp/json_pp > %
+autocmd FileType json nnoremap <Leader>cf :JSONPP<CR>
 """]
 
 """[NERDtree
