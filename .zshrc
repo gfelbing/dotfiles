@@ -104,3 +104,4 @@ HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+source /usr/share/fzf/key-bindings.zsh
