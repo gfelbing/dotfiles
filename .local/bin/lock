@@ -12,8 +12,5 @@ convert "$LOCK_IMAGE" \
     "$PADLOCK" \
     -gravity Center -compose Multiply \
     -composite "$LOCK_IMAGE"
-convert "$LOCK_IMAGE" \
-    -resize "$RESOLUTION" \
-    "$LOCK_IMAGE"
 i3lock -i $LOCK_IMAGE
 
