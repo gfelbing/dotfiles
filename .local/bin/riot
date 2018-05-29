@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -x
+
+chromium --app=https://riot.im/app
+
