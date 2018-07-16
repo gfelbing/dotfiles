@@ -15,6 +15,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'mindriot101/vim-yapf'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'mileszs/ack.vim'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 call vundle#end()            " required
 filetype plugin indent on    " required
 """]
