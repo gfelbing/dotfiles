@@ -3,7 +3,8 @@
 	url = git@github.com:gfelbing/oh-my-zsh.git
 [submodule ".config/awesome"]
 	path = .config/awesome
-	url = git@github.com:gfelbing/awesome-copycats.git
+        url = git@github.com:gfelbing/awesome-copycats.git
+        branch = 2019
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
