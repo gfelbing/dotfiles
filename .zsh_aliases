@@ -19,8 +19,8 @@ alias np="nao && scripts/postgame"
 alias nv="nao && vim"
 alias nao-leave="nao && scripts/shutdown 11 12 13 14 15 16 17"
 
-alias pacman="sudo pacman --color=auto"
-alias upgrade="sudo pacman -Syu"
+alias pacman="yay"
+alias upgrade="yay -Syu"
 alias sctl="systemctl"
 
 alias t='task'
