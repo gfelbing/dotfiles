@@ -8,6 +8,7 @@
             name: "{{ item }}"
             state: present
         with_items:
+            - aurman
             - awesome
             - chromium
             - firefox
@@ -15,6 +16,7 @@
             - gvim
             - i3lock
             - maim
+            - openssh
             - termite
             - the_silver_searcher
             - ttf-hack
