@@ -1,6 +1,6 @@
 """[Vundle stuff
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'leafgarland/typescript-vim'
@@ -15,8 +15,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'mindriot101/vim-yapf'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'mileszs/ack.vim'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plugin 'vim-pandoc/vim-pandoc'
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
 call vundle#end()            " required
 filetype plugin indent on    " required
 """]
@@ -119,3 +119,4 @@ nnoremap <silent> <C-k> :bprev<CR>
 """[ YCM
 nnoremap <C-b> :YcmCompleter GoTo
 """]
+

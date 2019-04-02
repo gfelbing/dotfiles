@@ -31,3 +31,4 @@ alias t='task'
 alias g="git"
 alias docker-clean='docker system prune'
 
+alias vim=nvim

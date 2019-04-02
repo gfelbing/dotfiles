@@ -8,12 +8,11 @@
             name: "{{ item }}"
             state: present
         with_items:
-            - aurman
             - awesome
             - chromium
             - firefox
             - fzf
-            - gvim
+            - neovim
             - i3lock
             - maim
             - openssh
@@ -25,15 +24,21 @@
 - name: Create symbolic links
   hosts: localhost 
   tasks:
-      - name: Linking files
-        file: 
+        - name: Create neovim config directory
+          file:
+            path: "{{ ansible_env.HOME }}/.config/nvim/bundle"
+            state: directory
+        - name: Linking files
+          file: 
             src: "{{ playbook_dir }}/home/{{ item }}"
             dest: "{{ ansible_env.HOME }}/{{ item }}"
             state: link
-        with_items:
+          with_items:
             - .config/awesome
             - .config/termite
             - .config/base16-shell
+            - .config/nvim/init.vim
+            - .config/nvim/bundle/Vundle.vim
             - .local/bin/lock
             - .local/bin/telegram
             - .local/bin/riot
@@ -42,8 +47,6 @@
             - .lynxrc
             - .padlock.png
             - .oh-my-zsh
-            - .vim
-            - .vimrc
             - .zsh_aliases
             - .zshrc
 
