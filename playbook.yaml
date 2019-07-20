@@ -25,7 +25,7 @@
   tasks:
       - name: Linking files
         file: 
-            src: "{{ playbook_dir }}/{{ item }}"
+            src: "{{ playbook_dir }}/home/{{ item }}"
             dest: "{{ ansible_env.HOME }}/{{ item }}"
             state: link
         with_items:
@@ -44,10 +44,4 @@
             - .vimrc
             - .zsh_aliases
             - .zshrc
-
-- name: Setup vim
-  hosts: localhost
-  tasks:
-      - name: Vundle update/clean
-        shell: vim +PluginUpdate +PluginClean +qall!
 
