@@ -51,6 +51,10 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 """]
 
+"""[ time
+:nnoremap <F5> "=strftime("\n- %H:%M:%S ")<CR>P
+:inoremap <F5> <C-R>=strftime("%H:%M:%S ")<CR>
+"""]
 
 """[Airline
 
