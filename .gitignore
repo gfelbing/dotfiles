@@ -1,4 +1,4 @@
-home/.vim/*
-!home/.vim/bundle/Vundle.vim
+home/.config/nvim/bundle/*
+!home/.config/nvim/bundle/Vundle.vim
 
 playbook.retry
