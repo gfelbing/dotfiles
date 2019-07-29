@@ -14,13 +14,6 @@ alias hunter-pass='PASSWORD_STORE_DIR=$HOME/Workspaces/hunter_credentials pass'
 
 NAO="/home/georg/Workspaces/hulks/nao"
 alias nao="cd $NAO && activate"
-alias nb="nao && scripts/compile"
-alias nu="nao && scripts/upload -dc"
-alias nc="nao && scripts/connect"
-alias ng="nao && scripts/pregame"
-alias np="nao && scripts/postgame"
-alias nv="nao && vim"
-alias nao-leave="nao && scripts/shutdown 11 12 13 14 15 16 17"
 
 alias pacman="yay"
 alias upgrade="yay -Syu"
