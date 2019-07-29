@@ -9,13 +9,15 @@
             state: present
         with_items:
             - awesome
+            - python-neovim
             - chromium
             - firefox
             - fzf
-            - neovim
             - i3lock
             - maim
+            - neovim
             - openssh
+            - python-neovim
             - termite
             - the_silver_searcher
             - ttf-hack
