@@ -20,7 +20,6 @@
             - python-neovim
             - termite
             - the_silver_searcher
-            - ttf-hack
             - zsh
 
 - name: Create symbolic links

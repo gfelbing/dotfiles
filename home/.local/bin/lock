@@ -8,7 +8,7 @@ PADLOCK="$HOME/.padlock.png"
 maim "$LOCK_IMAGE"
 RESOLUTION=$(identify -format '%wx%h' "$LOCK_IMAGE")
 convert "$LOCK_IMAGE" \
-    -resize "10%" -resize "1000%" \
+    -scale "10%" -scale "1000%" \
     "$PADLOCK" \
     -gravity Center -compose Multiply \
     -composite "$LOCK_IMAGE"
