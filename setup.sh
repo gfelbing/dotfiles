@@ -12,10 +12,72 @@ ensure_install() {
     fi
 }
 
-ensure_install ansible
-ansible-playbook --limit=localhost -v --ask-become-pass "$BASEDIR/playbook.yaml"
+ensure_yay() {
+    YAY_VERSION=$(yay --version)
+    if [ "$?" == "0" ]; then
+        echo "Already installed: '$YAY_VERSION', skipping."
+        return
+    fi
+    cd $(mktemp -d)
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+}
 
-# TODO: move this to playbook
+install_deps() {
+    yay -Sy --needed \
+        ansible \
+        awesome \
+        chromium \
+        firefox \
+        fzf \
+        i3-wm  \
+        i3blocks  \
+        i3lock  \
+        i3status \
+        maim \
+        neovim \
+        openssh \
+        python-neovim \
+        python-neovim \
+        termite \
+        the_silver_searcher \
+        zsh 
+}
+
+create_links() {
+    for LINK in $@; do
+        TARGET="$BASEDIR/home/$LINK"
+        LINK_NAME="$HOME/$LINK"
+        if [ ! -L "$LINK_NAME" ]; then
+            ln -sf "$TARGET" "$LINK_NAME"
+        fi
+    done
+}
+
+create_all_links() {
+    create_links \
+        .config/awesome \
+        .config/termite \
+        .config/base16-shell \
+        .config/nvim/init.vim \
+        .config/nvim/bundle/Vundle.vim \
+        .local/bin/lock \
+        .local/bin/telegram \
+        .local/bin/riot \
+        .agignore \
+        .env \
+        .lynxrc \
+        .padlock.png \
+        .oh-my-zsh \
+        .zsh_aliases \
+        .zshrc
+}
+
+ensure_yay
+install_deps
+create_all_links
+
 if [[ "$(echo $SHELL)" != */zsh ]]; then
     chsh -s /usr/bin/zsh
 fi
