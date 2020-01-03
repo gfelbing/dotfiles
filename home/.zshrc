@@ -13,7 +13,9 @@ export ZSH=/home/georg/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 source $HOME/.zsh_aliases
 source $HOME/.env
-
+if [ -f "$HOME/.zsh_host" ]; then
+    source "$HOME/.zsh_host"
+fi
 
 ZSH_THEME="agnoster"
 

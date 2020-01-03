@@ -1,16 +1,9 @@
 alias ls="ls --color=auto"
 alias ll="ls -la"
 
-HUNTER="/home/georg/Workspaces/hunter"
-alias ch="cd $HUNTER"
-alias gh="cd $HUNTER && ./gradlew --configure-on-demand --console=rich --build-cache"
-
 source $HOME/.local/opt/google-cloud-sdk/completion.zsh.inc
 
-
-alias activate-hunter="source /home/georg/.local/virtualenv/hunter/bin/activate"
 alias activate="source /home/georg/.local/virtualenv/bin/activate"
-alias hunter-pass='PASSWORD_STORE_DIR=$HOME/Workspaces/hunter_credentials pass'
 
 NAO="/home/georg/Workspaces/hulks/nao"
 alias nao="cd $NAO && activate"
