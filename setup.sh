@@ -37,6 +37,7 @@ install_deps() {
         i3status \
         maim \
         neovim \
+        nerd-fonts-hack \
         openssh \
         python-neovim \
         python-neovim \
@@ -60,6 +61,7 @@ create_all_links() {
         .config/awesome \
         .config/termite \
         .config/base16-shell \
+        .config/i3 \
         .config/nvim/init.vim \
         .config/nvim/bundle/Vundle.vim \
         .local/bin/lock \
