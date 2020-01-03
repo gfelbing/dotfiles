@@ -29,6 +29,7 @@ install_deps() {
         ansible \
         awesome \
         chromium \
+        dmenu \
         firefox \
         fzf \
         i3-wm  \
