@@ -26,7 +26,6 @@ ensure_yay() {
 
 install_deps() {
     yay -Sy --needed \
-        ansible \
         awesome \
         chromium \
         dmenu \
@@ -41,7 +40,6 @@ install_deps() {
         neovim \
         nerd-fonts-hack \
         openssh \
-        python-neovim \
         python-neovim \
         termite \
         the_silver_searcher \
