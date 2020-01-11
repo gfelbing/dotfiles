@@ -36,6 +36,7 @@ install_deps() {
         i3blocks  \
         i3lock  \
         i3status \
+        lazygit \
         maim \
         neovim \
         nerd-fonts-hack \

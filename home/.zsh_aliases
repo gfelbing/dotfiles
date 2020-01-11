@@ -15,6 +15,8 @@ alias sctl="systemctl"
 alias t='task'
 
 alias g="git"
+alias lg="lazygit"
+
 alias docker-clean='docker system prune'
 
 alias vim=nvim
