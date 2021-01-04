@@ -3,18 +3,15 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'ianks/vim-tsx'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ycm-core/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'chriskempson/base16-vim'
-Plugin 'mindriot101/vim-yapf'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'mileszs/ack.vim'
+Plugin 'autozimu/LanguageClient-neovim'
 "Plugin 'vim-pandoc/vim-pandoc'
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 call vundle#end()            " required
@@ -32,6 +29,22 @@ set autoread
 set exrc
 set secure
 let mapleader = "," 
+
+
+"""[ language server
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['/usr/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ 'typescript': ['/usr/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+""" ]
+
+
+:tnoremap <Esc> <C-\><C-n>
 
 " Tags for file jump and autocomplete
 command MakeTags !ctags -R .
@@ -90,8 +103,6 @@ command PDF :w | !pandoc %:t -o %:t.pdf
 command PANDOC :w | !pandoc-compose -v
 """]
 
-"""[yapf - python formatter
-command PEP8 :w | :Yapf --style=pep8 | :w
 
 """[clang
 command CLANGFORMAT :w | !clang-format -i %
@@ -121,7 +132,4 @@ nnoremap <silent> <C-j> :bnext<CR>
 nnoremap <silent> <C-k> :bprev<CR>
 """]
 
-"""[ YCM
-nnoremap <C-b> :YcmCompleter GoTo
-"""]
 

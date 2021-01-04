@@ -1,8 +1,6 @@
 alias ls="ls --color=auto"
 alias ll="ls -la"
 
-source $HOME/.local/opt/google-cloud-sdk/completion.zsh.inc
-
 alias activate="source /home/georg/.local/virtualenv/bin/activate"
 
 NAO="/home/georg/Workspaces/hulks/nao"
