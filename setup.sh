@@ -43,6 +43,8 @@ install_deps() {
         python-neovim \
         termite \
         the_silver_searcher \
+        terraform-lsp \
+        typescript-language-server \
         zsh 
 }
 

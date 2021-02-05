@@ -12,8 +12,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'mileszs/ack.vim'
 Plugin 'autozimu/LanguageClient-neovim'
-"Plugin 'vim-pandoc/vim-pandoc'
-"Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'dart-lang/dart-vim-plugin'
 call vundle#end()            " required
 filetype plugin indent on    " required
 """]
@@ -30,24 +29,24 @@ set exrc
 set secure
 let mapleader = "," 
 
+" Tags for file jump and autocomplete
+command MakeTags !ctags -R .
 
 """[ language server
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['/usr/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
     \ 'typescript': ['/usr/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ 'vue': ['vls', '--stdio'],
+    \ 'tf': ['terraform-lsp'],
+    \ 'dart': ['tcp://127.0.0.1:2089'],
     \ }
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+
+nnoremap <C-Space> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 """ ]
-
-
-:tnoremap <Esc> <C-\><C-n>
-
-" Tags for file jump and autocomplete
-command MakeTags !ctags -R .
 
 " file browse config
 let g:netrw_banner=0        " disable annoying banner
@@ -63,11 +62,6 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-"""]
-
-"""[ time
-:nnoremap <F5> "=strftime("\n- %H:%M:%S ")<CR>P
-:inoremap <F5> <C-R>=strftime("%H:%M:%S ")<CR>
 """]
 
 """[Airline
@@ -103,7 +97,6 @@ command PDF :w | !pandoc %:t -o %:t.pdf
 command PANDOC :w | !pandoc-compose -v
 """]
 
-
 """[clang
 command CLANGFORMAT :w | !clang-format -i %
 autocmd FileType c,cpp,objc nnoremap <Leader>cf :CLANGFORMAT<CR>
@@ -131,5 +124,4 @@ map <C-n> :call NERDTreeToggleInCurDir()<CR>
 nnoremap <silent> <C-j> :bnext<CR>
 nnoremap <silent> <C-k> :bprev<CR>
 """]
-
 
