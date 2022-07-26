@@ -26,25 +26,15 @@ ensure_yay() {
 
 install_deps() {
     yay -Sy --needed \
-        awesome \
-        chromium \
         dmenu \
-        firefox \
         fzf \
-        i3-wm  \
-        i3blocks  \
-        i3lock  \
-        i3status \
         lazygit \
         maim \
         neovim \
         nerd-fonts-hack \
         openssh \
         python-neovim \
-        termite \
         the_silver_searcher \
-        terraform-lsp \
-        typescript-language-server \
         zsh 
 }
 
@@ -60,15 +50,8 @@ create_links() {
 
 create_all_links() {
     create_links \
-        .config/awesome \
-        .config/termite \
-        .config/base16-shell \
-        .config/i3 \
-        .config/nvim/init.vim \
-        .config/nvim/bundle/Vundle.vim \
+        .config/nvim
         .local/bin/lock \
-        .local/bin/telegram \
-        .local/bin/riot \
         .agignore \
         .env \
         .lynxrc \
