@@ -11,9 +11,6 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
   -- beautiful statusline
   use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
-  -- the best ctrl+p for fuzzy file search
-  use 'mileszs/ack.vim'
-  use { 'junegunn/fzf', run = './install --bin', dir = '~/.fzf' }
   -- git support
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
@@ -23,6 +20,9 @@ require('packer').startup(function()
   use 'udalov/kotlin-vim'
   -- golang debug glv
   use 'sebdah/vim-delve'
+
+  -- fix everything and also find the ball
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',  requires = { {'nvim-lua/plenary.nvim'} } }
 
   --- LSP
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client

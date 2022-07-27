@@ -6,6 +6,11 @@ vim.keymap.set('n', keys.Lsp.Diagnostics.Open, vim.diagnostic.open_float, opts)
 vim.keymap.set('n', keys.Lsp.Diagnostics.Next, vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', keys.Lsp.Diagnostics.List, vim.diagnostic.setloclist, opts)
 
+vim.keymap.set("n", keys.Find.Reference, ':Telescope lsp_references<CR>', opts)
+vim.keymap.set("n", keys.Find.Symbol, ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
+vim.keymap.set("n", keys.Find.Reference, ':Telescope lsp_references<CR>', opts)
+vim.keymap.set("n", keys.Find.Implementation, ':Telescope lsp_implementations<CR>', opts)
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)

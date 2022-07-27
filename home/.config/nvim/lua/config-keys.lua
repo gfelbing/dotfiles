@@ -46,7 +46,15 @@ return {
     Toggle = "<C-n>",
     Find = "<A-n>",
   },
-  FindFile = "<C-p>",
+  Find = {
+    File = "ff",
+    Grep = "fg",
+    Buffer = "fb",
+    Command = "fh",
+    Reference = "fr",
+    Symbol = "fs",
+    Implementation = "fi",
+  },
   Buffer = {
     Next = "<C-j>",
     Previous = "<C-k>",

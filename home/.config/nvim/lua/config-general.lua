@@ -19,10 +19,12 @@ vim.api.nvim_set_keymap("n", keys.Buffer.Next, ':bn<CR>', { noremap = true, sile
 vim.api.nvim_set_keymap("n", keys.Buffer.Previous, ':bp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", keys.Buffer.Delete, ':bd<CR>', { noremap = true, silent = true })
 
--- thanks https://blog.ploth.xyz/blog/2017/11/04/vim-search-like-a-boss.html
--- searching → fzf / ag
-vim.api.nvim_set_keymap("n", keys.FindFile, ':FZF<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", keys.Find.File, ':Telescope find_files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", keys.Find.Buffer, ':Telescope buffers<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", keys.Find.Grep, ':Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", keys.Find.Command, ':Telescope help_tags<CR>', { noremap = true, silent = true })
 vim.cmd("let g:ackprg = 'ag --vimgrep'")
+
 
 require("bufferline").setup {}
 
