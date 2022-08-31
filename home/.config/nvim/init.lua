@@ -16,10 +16,7 @@ require('packer').startup(function()
   use 'airblade/vim-gitgutter'
 
   --- programming
-  -- kotlin syntax highlighting
-  use 'udalov/kotlin-vim'
-  -- golang debug glv
-  use 'sebdah/vim-delve'
+  use 'sebdah/vim-delve' -- golang debug glv
 
   -- fix everything and also find the ball
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',  requires = { {'nvim-lua/plenary.nvim'} } }
@@ -33,6 +30,10 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'valentjn/ltex-ls' -- latex/markdown
   use 'buoto/gotests-vim' -- test code generation for go
+
+  -- syntax highlighting
+  use 'jvirtanen/vim-hcl' -- hashicorp hcl
+  use 'udalov/kotlin-vim' -- kotlin syntax highlighting
 
   -- debugging
   use 'mfussenegger/nvim-dap'

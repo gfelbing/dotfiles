@@ -54,7 +54,7 @@ local lspconfig = require('lspconfig')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 -- lspconfigs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- lsp's with default setup
-local servers = { 'pyright', 'tsserver', 'gopls', 'golangci_lint_ls', 'ltex' }
+local servers = { 'pyright', 'tsserver', 'gopls', 'golangci_lint_ls', 'ltex', 'terraform_lsp' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,

@@ -4,7 +4,8 @@
 
 The following external tools need to be in path:
 
-- [ag](https://github.com/ggreer/the_silver_searcher)
+- [terraform-lsp](https://github.com/juliosueiras/terraform-lsp)
+- fzf
 - TODO: append lsp servers
 
 ## setup
