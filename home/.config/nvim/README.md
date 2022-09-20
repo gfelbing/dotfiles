@@ -6,6 +6,7 @@ The following external tools need to be in path:
 
 - [terraform-lsp](https://github.com/juliosueiras/terraform-lsp)
 - fzf
+- bufls `go install github.com/bufbuild/buf-language-server/cmd/bufls@latest`
 - TODO: append lsp servers
 
 ## setup
