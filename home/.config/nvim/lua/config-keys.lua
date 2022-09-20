@@ -8,6 +8,9 @@ return {
     StepOver = "tso",
     StepInto = "tsi",
   },
+  Testing = {
+    Coverage = "<space>tc",
+  },
   Lsp = {
     Diagnostics = {
       Open = "<space>e",
