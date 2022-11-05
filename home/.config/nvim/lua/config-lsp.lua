@@ -47,7 +47,7 @@ local lsp_flags = {
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
@@ -63,7 +63,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 -- lua with speciality
-lspconfig.sumneko_lua.setup(require("lua-dev").setup({
+lspconfig.sumneko_lua.setup(require("neodev").setup({
   lspconfig = {
     capabilities = capabilities,
     on_attach = on_attach,

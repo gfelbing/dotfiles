@@ -24,7 +24,7 @@ require('packer').startup(function()
   --- LSP
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'folke/lua-dev.nvim' -- vim lua dev support
+  use 'folke/neodev.nvim' -- vim lua dev support
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
