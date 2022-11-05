@@ -5,7 +5,9 @@
 The following external tools need to be in path:
 
 - [terraform-lsp](https://github.com/juliosueiras/terraform-lsp)
-- fzf
+- [ag](https://github.com/ggreer/the_silver_searcher)
+- [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver)
+- [gopls](https://github.com/golang/tools/tree/master/gopls)
 - bufls `go install github.com/bufbuild/buf-language-server/cmd/bufls@latest`
 - TODO: append lsp servers
 

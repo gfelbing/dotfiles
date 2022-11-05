@@ -1,6 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$PATH:/opt/cuda/bin"
+path_if_exists() {
+  TARGET="$1"
+  if [ -d "$TARGET" ]; then
+    export PATH="$TARGET:$PATH"
+  fi
+}
+
+path_if_exists "/opt/cuda/bin"
+path_if_exists "$HOME/go/bin"
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
