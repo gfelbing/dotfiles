@@ -49,6 +49,14 @@ local lsp_flags = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+local neodev = require("neodev").setup({
+  lspconfig = {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = lsp_flags,
+  }
+})
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
@@ -62,14 +70,16 @@ for _, lsp in ipairs(servers) do
     flags = lsp_flags,
   }
 end
--- lua with speciality
-lspconfig.sumneko_lua.setup(require("neodev").setup({
-  lspconfig = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = lsp_flags,
+-- setup sumneko and enable call snippets
+lspconfig.sumneko_lua.setup({
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      }
+    }
   }
-}))
+})
 
 -- luasnip setup
 local luasnip = require 'luasnip'
