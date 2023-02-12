@@ -71,7 +71,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 -- setup sumneko and enable call snippets
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   settings = {
     Lua = {
       completion = {
