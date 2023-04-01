@@ -50,6 +50,7 @@ local lsp_flags = {
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
 require("neodev").setup({
@@ -64,7 +65,7 @@ local lspconfig = require('lspconfig')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 -- lspconfigs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- lsp's with default setup
-local servers = { 'pyright', 'tsserver', 'gopls', 'golangci_lint_ls', 'marksman', 'terraform_lsp', 'bufls' }
+local servers = { 'pyright', 'tsserver', 'gopls', 'golangci_lint_ls', 'marksman', 'terraform_lsp', 'bufls', 'html', 'css' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
