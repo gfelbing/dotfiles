@@ -37,7 +37,9 @@ local on_attach = function(_, bufnr)
 
   vim.keymap.set('n', keys.Lsp.Refactor.Rename, vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', keys.Lsp.Refactor.CodeAction, vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', keys.Lsp.Refactor.Format, vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', keys.Lsp.Refactor.Format, function()
+      vim.lsp.buf.format { async = true }
+  end, bufopts)
 end
 
 local lsp_flags = {
