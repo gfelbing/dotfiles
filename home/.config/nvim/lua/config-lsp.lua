@@ -52,7 +52,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-local neodev = require("neodev").setup({
+require("neodev").setup({
   lspconfig = {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -72,6 +72,14 @@ for _, lsp in ipairs(servers) do
     flags = lsp_flags,
   }
 end
+lspconfig.gopls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern('go.work', 'go.mod', '.git')(fname)
+  end,
+}
 -- setup sumneko and enable call snippets
 lspconfig.lua_ls.setup({
   settings = {
