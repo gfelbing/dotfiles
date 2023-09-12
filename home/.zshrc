@@ -9,6 +9,7 @@ path_if_exists() {
 
 path_if_exists "/opt/cuda/bin"
 path_if_exists "$HOME/go/bin"
+path_if_exists "$HOME/.local/bin"
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
