@@ -15,7 +15,7 @@ path_if_exists "$HOME/.local/opt/flutter/bin"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-base16_material-palenight
+base16_dracula
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/georg/.oh-my-zsh
@@ -29,7 +29,7 @@ if [ -f "$HOME/.zsh_host" ]; then
     source "$HOME/.zsh_host"
 fi
 
-ZSH_THEME="amuse"
+ZSH_THEME="cpt_foobar"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random

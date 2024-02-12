@@ -1,7 +1,6 @@
 #!/bin/bash
 
-set -e
-set -x
+set -ex
 
 BASEDIR=$(realpath $(dirname $0))
 
@@ -29,11 +28,9 @@ install_deps() {
         dmenu \
         fzf \
         lazygit \
-        maim \
         neovim \
         nerd-fonts-hack \
         openssh \
-        python-neovim \
         the_silver_searcher \
         zsh 
 }
