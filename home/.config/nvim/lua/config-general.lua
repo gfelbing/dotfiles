@@ -10,10 +10,6 @@ vim.api.nvim_set_option('softtabstop', 2)
 -- when indenting with '>', use 2 spaces width
 vim.api.nvim_set_option('shiftwidth', 2)
 
--- colors
-vim.cmd("set background=light")
-vim.cmd("colorscheme PaperColor")
-
 -- buffers
 vim.api.nvim_set_keymap("n", keys.Buffer.Next, ':bn<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", keys.Buffer.Previous, ':bp<CR>', { noremap = true, silent = true })

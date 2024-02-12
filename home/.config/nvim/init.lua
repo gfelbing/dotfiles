@@ -10,10 +10,6 @@ require('packer').startup(function()
   -- Package manager
   use 'wbthomason/packer.nvim'
 
-  -- colors
-  --use 'RRethy/nvim-base16'
-  use 'NLKNguyen/papercolor-theme'
-
   -- file tree explorer
   use 'kyazdani42/nvim-tree.lua'
   -- beautiful statusline

@@ -10,11 +10,12 @@ path_if_exists() {
 path_if_exists "/opt/cuda/bin"
 path_if_exists "$HOME/go/bin"
 path_if_exists "$HOME/.local/bin"
+path_if_exists "$HOME/.local/opt/flutter/bin"
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-base16_tomorrow
+base16_material-palenight
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/georg/.oh-my-zsh
@@ -28,7 +29,7 @@ if [ -f "$HOME/.zsh_host" ]; then
     source "$HOME/.zsh_host"
 fi
 
-ZSH_THEME="agnoster"
+ZSH_THEME="amuse"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random

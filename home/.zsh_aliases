@@ -1,20 +1,13 @@
 alias ls="ls --color=auto"
 alias ll="ls -la"
 
-alias activate="source /home/georg/.local/virtualenv/bin/activate"
-
-NAO="/home/georg/Workspaces/hulks/nao"
-alias nao="cd $NAO && activate"
+alias activate="source .venv/bin/activate"
 
 alias pacman="yay"
 alias upgrade="yay -Syu"
 alias sctl="systemctl"
 
-alias t='task'
-
 alias g="git"
 alias lg="lazygit"
-
-alias docker-clean='docker system prune'
 
 alias vim=nvim
