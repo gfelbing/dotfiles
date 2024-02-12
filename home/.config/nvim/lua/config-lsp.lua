@@ -6,7 +6,6 @@ vim.keymap.set('n', keys.Lsp.Diagnostics.Open, vim.diagnostic.open_float, opts)
 vim.keymap.set('n', keys.Lsp.Diagnostics.Next, vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', keys.Lsp.Diagnostics.List, vim.diagnostic.setloclist, opts)
 
-vim.keymap.set("n", keys.Find.Reference, ':Telescope lsp_references<CR>', opts)
 vim.keymap.set("n", keys.Find.Symbol, ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
 vim.keymap.set("n", keys.Find.Reference, ':Telescope lsp_references<CR>', opts)
 vim.keymap.set("n", keys.Find.Implementation, ':Telescope lsp_implementations<CR>', opts)
@@ -65,7 +64,7 @@ local lspconfig = require('lspconfig')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 -- lspconfigs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- lsp's with default setup
-local servers = { 'dartls', 'pylsp', 'tsserver', 'gopls', 'golangci_lint_ls', 'marksman', 'terraform_lsp', 'bufls', 'html', 'cssls', 'clangd' }
+local servers = { 'dartls', 'pylsp', 'tsserver', 'gopls', 'golangci_lint_ls', 'marksman', 'terraform_lsp', 'bufls', 'html', 'cssls', 'clangd', 'bashls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
