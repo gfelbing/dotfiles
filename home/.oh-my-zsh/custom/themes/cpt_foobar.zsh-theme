@@ -93,19 +93,6 @@ prompt_context() {
   fi
 }
 
-prompt_newline() {
-  if [[ "$CURRENT_BG" == 'black' ]]; then
-    prompt_segment blue default ""
-  fi
-  prompt_end
-  echo -n "\n"
-  CURRENT_BG='NONE'
-}
-
-prompt_cmd() {
-  prompt_segment green black "$" 
-}
-
 # Git: branch/detached head, dirty status
 prompt_git() {
   (( $+commands[git] )) || return
@@ -270,6 +257,20 @@ prompt_aws() {
 prompt_time() {
   prompt_segment black default "%D{%Y-%m-%d} %*"
 }
+
+prompt_newline() {
+  if [[ "$CURRENT_BG" == 'black' ]]; then
+    prompt_segment blue default ""
+  fi
+  prompt_end
+  echo -n "\n"
+  CURRENT_BG='NONE'
+}
+
+prompt_cmd() {
+  prompt_segment green black "$" 
+}
+
 
 ## Main prompt
 build_prompt() {
