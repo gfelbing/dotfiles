@@ -32,6 +32,7 @@ install_deps() {
         nerd-fonts-hack \
         openssh \
         the_silver_searcher \
+        terminator \
         zsh 
 }
 
@@ -47,13 +48,10 @@ create_links() {
 
 create_all_links() {
     create_links \
-        .config/nvim
-        .local/bin/lock \
+        .config/nvim \
+        .oh-my-zsh/custom/themes/cpt_foobar.zsh-theme \
         .agignore \
         .env \
-        .lynxrc \
-        .padlock.png \
-        .oh-my-zsh \
         .zsh_aliases \
         .zshrc
 }
