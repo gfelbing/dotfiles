@@ -11,6 +11,10 @@ return {
   Testing = {
     Coverage = "<space>tc",
   },
+  Git = {
+    Blame = '<space>gb',
+    Lazy = '<space>gg',
+  },
   Lsp = {
     Diagnostics = {
       Open = "<space>e",

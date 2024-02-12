@@ -17,6 +17,13 @@ require('packer').startup(function()
   -- git support
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
+  use({
+      "kdheepak/lazygit.nvim",
+      -- optional for floating window border decoration
+      requires = {
+          "nvim-lua/plenary.nvim",
+      },
+  })
 
   --- programming
   use 'sebdah/vim-delve' -- golang debug glv
@@ -72,6 +79,7 @@ require('packer').startup(function()
 end)
 
 require('config-general')
+require('config-git')
 require('config-lsp')
 require('config-dap')
 require('config-coverage')
