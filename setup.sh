@@ -91,6 +91,7 @@ LINKS=(
   ".agignore"
   ".config/nvim"
   ".config/terminator/config"
+  ".local/bin/upgrade-all"
   ".env"
   ".oh-my-zsh/custom/themes/cpt_foobar.zsh-theme"
   ".zsh_aliases"
@@ -99,7 +100,12 @@ LINKS=(
 for LINK in "${LINKS[@]}"; do
   TARGET="$BASEDIR/home/$LINK"
   LINK_NAME="$HOME/$LINK"
-  if [ ! -L "$LINK_NAME" ]; then
+  if [ -L "$LINK_NAME" ]; then
+    log_info "link $LINK exists"
+  elif [ -f "$LINK_NAME" ]; then
+    log_err "will not link '$LINK': is a file."
+    exit 1
+  else
     log_action "create link $LINK"
     mkdir -p $(dirname $LINK_NAME)
     ln -sf "$TARGET" "$LINK_NAME"

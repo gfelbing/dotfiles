@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+set -e
+
+BASEDIR=$(realpath $(dirname $0))
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+log_head () {
+  echo "$BOLD ### $@ ###$NORMAL"
+}
+
+log_err () {
+  echo -e "$BOLD$RED$@$NC$NORMAL"
+}
+
+log_info () {
+  echo -e "$BLUE$@$NC"
+}
+
+log_action() {
+  echo -e "$BOLD$CYAN$@$NC$NORMAL"
+}
+
+log_head "Figuring OS"
+if [ -f "/etc/os-release" ]; then
+  source /etc/os-release
+  log_info "found $ID"
+else
+  log_err "no /etc/os-release found. exit."
+  exit 1
+fi
+
+log_head "Upgrade packages"
+if [ "$ID" == "arch" ]; then
+  yay -Syu
+elif [ "$ID" == "ubuntu" ]; then
+  sudo apt update
+  sudo apt upgrade
+else 
+  log_err "OS '$ID' unsupported. skip."
+fi
+
+log_head "nvim PackerSync"
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+which flatpak > /dev/null 2>&1 && FOUND=1 || FOUND=0
+if [ $FOUND == 1 ]; then
+  log_head "flatpak update"
+  flatpak update
+fi
+
+which go-global-update > /dev/null 2>&1 && FOUND=1 || FOUND=0
+if [ $FOUND == 1 ]; then
+  log_head "go-global-update"
+  go-global-update
+fi
+
+which eget > /dev/null 2>&1 && FOUND=1 || FOUND=0
+if [ $FOUND == 1 ]; then
+  log_head "eget"
+  eget -D
+fi
+
+log_head "firmware updates"
+sudo fwupdmgr update
