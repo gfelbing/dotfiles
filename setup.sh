@@ -33,6 +33,7 @@ install_deps() {
         openssh \
         the_silver_searcher \
         terminator \
+        ripgrep \
         zsh 
 }
 
