@@ -39,8 +39,9 @@ log_head "Upgrade packages"
 if [ "$ID" == "arch" ]; then
   yay -Syu
 elif [ "$ID" == "ubuntu" ]; then
-  sudo apt update
-  sudo apt upgrade
+  sudo apt-get update 
+  sudo apt-get dist-upgrade
+  sudo apt-get autoremove --purge
 else 
   log_err "OS '$ID' unsupported. skip."
 fi
@@ -52,6 +53,12 @@ which flatpak > /dev/null 2>&1 && FOUND=1 || FOUND=0
 if [ $FOUND == 1 ]; then
   log_head "flatpak update"
   flatpak update
+fi
+
+which snap > /dev/null 2>&1 && FOUND=1 || FOUND=0
+if [ $FOUND == 1 ]; then
+  log_head "flatpak update"
+  sudo snap refresh
 fi
 
 which go-global-update > /dev/null 2>&1 && FOUND=1 || FOUND=0

@@ -7,22 +7,30 @@ path_if_exists() {
   fi
 }
 
+source_if_exists() {
+  TARGET="$1"
+  if [ -f "$TARGET" ]; then
+    source "$TARGET"
+  fi
+}
+
 path_if_exists "/opt/cuda/bin"
 path_if_exists "$HOME/go/bin"
 path_if_exists "$HOME/.local/bin"
 path_if_exists "$HOME/.local/opt/flutter/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/georg/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-source $HOME/.zsh_aliases
-source $HOME/.env
-if [ -f "$HOME/.zsh_host" ]; then
-    source "$HOME/.zsh_host"
-fi
+ZSH_THEME="cpt_foobar"
+
+source_if_exists "$HOME/.profile"
+source_if_exists $HOME/.zsh_aliases
+source_if_exists $HOME/.env
+source_if_exists "$HOME/.zsh_host"
 
 ZSH_THEME="cpt_foobar"
 
@@ -115,4 +123,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-source /usr/share/fzf/key-bindings.zsh
+# fzf reverse search
+source_if_exists /usr/share/doc/fzf/examples/key-bindings.zsh
+source_if_exists /usr/share/fzf/key-bindings.zsh
+source_if_exists "$HOME/.fzf.zsh"

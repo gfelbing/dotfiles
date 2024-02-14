@@ -67,7 +67,7 @@ elif [ "$ID" == "ubuntu" ]; then
   PACKAGES=(
     "fzf"
     #"lazygit" TODO: check how to install
-    "neovim" 
+    #"neovim" TODO: snap
     #"ttf-hack-nerd" TODO: check how to install
     "ripgrep" 
     "terminator" 
