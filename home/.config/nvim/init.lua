@@ -46,9 +46,15 @@ require('packer').startup(function()
   use 'udalov/kotlin-vim' -- kotlin syntax highlighting
 
   -- debugging
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-  use 'leoluz/nvim-dap-go'
+  use({
+      'mfussenegger/nvim-dap',
+      -- optional for floating window border decoration
+      requires = {
+        'nvim-neotest/nvim-nio',
+        'rcarriga/nvim-dap-ui',
+        'leoluz/nvim-dap-go',
+      },
+  })
 
   use({
     "andythigpen/nvim-coverage",
