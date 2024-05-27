@@ -11,9 +11,10 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- file tree explorer
-  use 'kyazdani42/nvim-tree.lua'
+  use { 'nvim-tree/nvim-web-devicons', tag= "v0.*" }
+  use { 'nvim-tree/nvim-tree.lua', tag = "v1" }
   -- beautiful statusline
-  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   -- git support
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
