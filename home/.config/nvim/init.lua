@@ -4,50 +4,68 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+-- bootstarp package manager
+local function bootstrap_pckr()
+  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
 
-local use = require('packer').use
-require('packer').startup(function()
+  if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+    vim.fn.system({
+      'git',
+      'clone',
+      "--filter=blob:none",
+      'https://github.com/lewis6991/pckr.nvim',
+      pckr_path
+    })
+  end
+
+  vim.opt.rtp:prepend(pckr_path)
+end
+
+
+bootstrap_pckr()
+
+require('pckr').add{
   -- Package manager
-  use 'wbthomason/packer.nvim'
+  'wbthomason/packer.nvim';
 
   -- file tree explorer
-  use { 'nvim-tree/nvim-web-devicons', tag= "v0.*" }
-  use { 'nvim-tree/nvim-tree.lua', tag = "v1" }
+  { 'nvim-tree/nvim-web-devicons', tag= "v0.*" };
+  { 'nvim-tree/nvim-tree.lua', tag = "v1" };
   -- beautiful statusline
-  use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' };
   -- git support
-  use 'tpope/vim-fugitive'
-  use 'airblade/vim-gitgutter'
-  use({
+  'tpope/vim-fugitive';
+  'airblade/vim-gitgutter';
+  {
       "kdheepak/lazygit.nvim",
       -- optional for floating window border decoration
       requires = {
           "nvim-lua/plenary.nvim",
       },
-  })
+  };
 
   --- programming
-  use 'sebdah/vim-delve' -- golang debug glv
+  'sebdah/vim-delve'; -- golang debug glv
 
   -- fix everything and also find the ball
-  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
+  { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } };
 
   --- LSP
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'folke/neodev.nvim' -- vim lua dev support
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use 'buoto/gotests-vim' -- test code generation for go
-  use 'artempyanykh/marksman' -- markdown
+  'neovim/nvim-lspconfig'; -- Collection of configurations for built-in LSP client
+  'hrsh7th/nvim-cmp'; -- Autocompletion plugin
+  'folke/neodev.nvim'; -- vim lua dev support
+  'hrsh7th/cmp-nvim-lsp'; -- LSP source for nvim-cmp
+  'saadparwaiz1/cmp_luasnip'; -- Snippets source for nvim-cmp
+  'L3MON4D3/LuaSnip'; -- Snippets plugin
+  'buoto/gotests-vim'; -- test code generation for go
+  'artempyanykh/marksman'; -- markdown
 
   -- syntax highlighting
-  use 'jvirtanen/vim-hcl' -- hashicorp hcl
-  use 'udalov/kotlin-vim' -- kotlin syntax highlighting
+  'jvirtanen/vim-hcl'; -- hashicorp hcl
+  'udalov/kotlin-vim'; -- kotlin syntax highlighting
 
   -- debugging
-  use({
+  {
       'mfussenegger/nvim-dap',
       -- optional for floating window border decoration
       requires = {
@@ -55,9 +73,9 @@ require('packer').startup(function()
         'rcarriga/nvim-dap-ui',
         'leoluz/nvim-dap-go',
       },
-  })
+  };
 
-  use({
+  {
     "andythigpen/nvim-coverage",
     requires = "nvim-lua/plenary.nvim",
     config = function()
@@ -82,8 +100,8 @@ require('packer').startup(function()
         },
       })
     end,
-  })
-end)
+  };
+}
 
 require('config-general')
 require('config-git')

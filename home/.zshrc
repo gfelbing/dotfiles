@@ -14,10 +14,13 @@ source_if_exists() {
   fi
 }
 
-path_if_exists "/opt/cuda/bin"
-path_if_exists "$HOME/go/bin"
+path_if_exists "$HOME/.cargo/bin"
 path_if_exists "$HOME/.local/bin"
 path_if_exists "$HOME/.local/opt/flutter/bin"
+path_if_exists "$HOME/.local/opt/google-cloud-sdk/bin"
+path_if_exists "$HOME/go/bin"
+path_if_exists "/opt/cuda/bin"
+path_if_exists "/usr/lib/ccache/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh

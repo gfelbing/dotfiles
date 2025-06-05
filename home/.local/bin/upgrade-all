@@ -46,9 +46,6 @@ else
   log_err "OS '$ID' unsupported. skip."
 fi
 
-log_head "nvim PackerSync"
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
 which flatpak > /dev/null 2>&1 && FOUND=1 || FOUND=0
 if [ $FOUND == 1 ]; then
   log_head "flatpak update"
