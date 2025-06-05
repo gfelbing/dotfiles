@@ -64,7 +64,7 @@ local lspconfig = require('lspconfig')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 -- lspconfigs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- lsp's with default setup
-local servers = { 'dartls', 'pylsp', 'tsserver', 'gopls', 'golangci_lint_ls', 'marksman', 'terraform_lsp', 'bufls', 'html', 'cssls', 'clangd', 'bashls' }
+local servers = { 'rust_analyzer', 'dartls', 'ts_ls', 'gopls', 'golangci_lint_ls', 'marksman', 'terraform_lsp', 'buf_ls', 'html', 'cssls', 'clangd', 'bashls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
@@ -89,6 +89,23 @@ lspconfig.lua_ls.setup({
       }
     }
   }
+})
+
+-- pylsp
+lspconfig.pylsp.setup({
+	on_attach = on_attach,
+	settings = {
+		pylsp = {
+      log_level = "DEBUG",
+			plugins = {
+				isort = { enabled = true, profile = "black" },
+				pyls_black = { enabled = true },
+        pyflakes = { enabled = false },  
+        pylint = { enabled = false },
+        rope_autoimport = { enabled = true }
+			},
+		},
+	},
 })
 
 -- luasnip setup
