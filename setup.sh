@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -36,7 +36,7 @@ else
 fi
 
 log_head "Install packages"
-if [ "$ID" == "arch" ]; then
+if [[ "$ID" == "arch" || "$ID" == "cachyos" ]]; then
   YAY_VERSION=$(yay --version)
   if [ "$?" != "0" ]; then
     log_action "setting up yay"
@@ -51,7 +51,6 @@ if [ "$ID" == "arch" ]; then
     "neovim" 
     "ttf-hack-nerd" 
     "ripgrep" 
-    "terminator" 
     "the_silver_searcher" 
     "zsh" 
     "bash-language-server"
