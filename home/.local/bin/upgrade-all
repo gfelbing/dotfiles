@@ -39,9 +39,9 @@ log_head "Upgrade packages"
 if [ "$ID" == "arch" ]; then
   yay -Syu
 elif [ "$ID" == "ubuntu" ]; then
-  sudo apt-get update 
-  sudo apt-get dist-upgrade
-  sudo apt-get autoremove --purge
+  sudo apt update 
+  sudo apt upgrade
+  sudo apt autoremove --purge
 else 
   log_err "OS '$ID' unsupported. skip."
 fi
@@ -67,8 +67,12 @@ fi
 which eget > /dev/null 2>&1 && FOUND=1 || FOUND=0
 if [ $FOUND == 1 ]; then
   log_head "eget"
-  eget -D
+  eget -vD
 fi
 
 log_head "firmware updates"
 sudo fwupdmgr update
+
+
+log_head "npm update -g"
+sudo npm update -g

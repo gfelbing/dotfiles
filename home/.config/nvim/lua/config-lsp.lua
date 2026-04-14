@@ -66,22 +66,16 @@ local lspconfig = require('lspconfig')
 -- lsp's with default setup
 local servers = { 'rust_analyzer', 'dartls', 'ts_ls', 'gopls', 'golangci_lint_ls', 'marksman', 'terraform_lsp', 'buf_ls', 'html', 'cssls', 'clangd', 'bashls' }
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  vim.lsp.config(lsp, {
     capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
-  }
+  })
+  vim.lsp.enable(lsp)
 end
-lspconfig.gopls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-  root_dir = function(fname)
-    return lspconfig.util.root_pattern('go.work', 'go.mod', '.git')(fname)
-  end,
-}
+
 -- setup sumneko and enable call snippets
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
       completion = {
@@ -92,7 +86,7 @@ lspconfig.lua_ls.setup({
 })
 
 -- pylsp
-lspconfig.pylsp.setup({
+vim.lsp.config("pylsp", {
 	on_attach = on_attach,
 	settings = {
 		pylsp = {
